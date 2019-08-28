@@ -1,0 +1,323 @@
+<!--
+* Page Name 	: index.php
+* Page Perpose  : To Develope a form with all posible inputs fields.
+* Used Tchnology: HTML5, CSS3, PHP, MySQL
+* Date & Time	: April 29th, 2016.  At 12:30 PM.
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML5 Form With All possible Feilds.</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style type="text/css">
+        form {
+            width: 60%;
+        }
+
+        input:required:invalid,
+        input:focus:invalid {
+            background-image: url(../img/invalid.png);
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: 10px;
+        }
+
+        input:required:valid {
+            background-image: url(../img/valid.png);
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: 10px;
+        }
+
+        sup {
+            color: red;
+        }
+
+        input,
+        select {
+            background: #fff url(ico_validation.png) 260px 24px no-repeat;
+            display: inline-block;
+            width: 250px;
+            border: 1px solid #00C492;
+            padding: 3px 26px 3px 3px;
+            -moz-transition: background-color 1s ease;
+            -webkit-transition: background-color 1s ease;
+            -o-transition: background-color 1s ease;
+            transition: background-color 1s ease;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <fieldset>
+            <legend align=center>HTML5 Form Validation</legend>
+            <table>
+                <form action="../../index.html" name="myform" method="post">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="UserName">User Name <sup>*</sup></label>
+                            </td>
+                            <td>
+                                <input type="text" class="input" name="uname" placeholder="Enter First Name..." pattern="[A-Za-z](?!.*\d)(?!.*\W+).{2,25}"
+                                    title="Please Enter Username Of Minimum 3 Character" required>
+                            </td>
+                        </tr>
+                        <!--
+												'title'     - to inform user about Username length Pattern.
+
+												HTML5 Validation : 
+
+												'Pattern'   - for apply desired pattern.
+												'[A-Za-z]'	- to check input only form in between 'A-Z' and 'a-z'.
+												'(?!.*\d)'  - to check 'No Number'.
+												'(?!.*\W+)' - to check 'No Special Characters'.
+												'.{3,25}'   - to specify range of characters not less than 2 and not more than 25
+												'required'  - for mandatory field. 
+											-->
+                        <tr>
+                            <td>
+                                <label for="Password">Password </label>
+                            </td>
+                            <td>
+                                <input type="password" class="input" name="pwd1" placeholder=" plz Enter Password"
+                                    title="Password Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                    pattern="(?=.*\d)(?=.*\W+)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange="form.pwd2.pattern=this.value;"
+                                    required />
+                            </td>
+                        </tr>
+                        <!--
+												'title'     - to inform user about Password Pattern.
+
+												HTML5 Validation : 
+
+												'Pattern'    - for apply desired pattern.
+												'(?=.*[a-z])'- to check 'lower characters'.
+												'(?=.*[A-Z])'- to check 'upper characters'.
+												'(?=.*\d)'   - to check for 'Number'.
+												'(?=.*\W+)'  - to check for 'Special Characters'.
+												'.{8,}'		 - to specify range of characters (i.e 'minimum 8' and 'maximum not specify')
+												'required'   - for mandatory field. 
+												
+												Javascript code :
+
+												onchange="form.pwd2.pattern=this.value;" -  to check both passwords are same or not.
+											-->
+                        <tr>
+                            <td>
+                                <label for="ConfrimPassword">Confirm Password </label>
+                            </td>
+                            <td>
+                                <input type="password" class="input" name="pwd2" placeholder="Confirm Password" title="Please enter the same Password as above"
+                                    pattern="(?=.*\d)(?=.*\W+)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
+                            </td>
+                        </tr>
+                        <!--
+												'title'     - to inform user about Password Pattern.
+
+												HTML5 Validation : 
+
+												'Pattern'    - for apply desired pattern.
+												'(?=.*[a-z])'- to check 'lower characters'.
+												'(?=.*[A-Z])'- to check 'upper characters'.
+												'(?=.*\d)'   - to check for 'Number'.
+												'(?=.*\W+)'  - to check for 'Special Characters'.
+												'.{8,}'		 - to specify range of characters (i.e 'minimum 8' and 'maximum not specify')
+												'required'   - for mandatory field.						
+											-->
+                        <tr>
+                            <td>
+                                <label for="Email">Email ID </label>
+                            </td>
+                            <td>
+                                <input type="email" name="email" class="input" placeholder="Enter Email ID" title="Please Enter Valid Email ID"
+                                    required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Address">Address </label>
+                            </td>
+                            <td>
+                                <textarea class="input" name="add" required placeholder="Enter Address Here"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="city">City </label>
+                            </td>
+                            <td>
+                                <select class="input" name="city" required>
+                                    <option selected>Select City</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="URL">URL </label>
+                            </td>
+                            <td>
+                                <input type="url" class="input" name="url" placeholder="Enter Website url" title="Please Enter Valid url with 'https://' "
+                                    pattern="https?://.+" value="https://" required />
+                            </td>
+                        </tr>
+                        <!--											
+												HTML5 Validation : 
+
+												'Pattern'    - for apply desired pattern.
+												'https?://.+'- to check url start with 'https://' or not.
+												
+												'required'   - for mandatory field. 						
+											-->
+                        <tr>
+                            <td>
+                                <label for="Age">Age </label>
+                            </td>
+                            <td>
+                                <input type="number" name="age" class="input" size="6" placeholder="Enter Age (15+)"
+                                    min="18" max="80" title="Please Enter Valid Age Between 18 to 80 years" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Color">Favourite Color </label>
+                            </td>
+                            <td>
+                                <input type="color" class="input" name="color" title="Please Select Color" required>
+                            </td>
+                        </tr>
+                        <!-- for New Browsers only -->
+                        <tr>
+                            <td>
+                                <label for="Date">Date </label>
+                            </td>
+                            <td>
+                                <input type="date" name="date" class="input" placeholder="Date" title="Please Enter Date"
+                                    required>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="Date Time">Date Time </label>
+                            </td>
+                            <td>
+                                <input type="datetime" class="input" placeholder="Datetime" title="Please Enter Date"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="DateTime-Local">Date Time - Local </label>
+                            </td>
+                            <td>
+                                <input type="datetime-local" class="input" placeholder="Datetime-local" title="Please Enter Date"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Time">Time </label>
+                            </td>
+                            <td>
+                                <input type="time" name="time" class="input" placeholder="time" title="Please Enter Date"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Month">Month </label>
+                            </td>
+                            <td>
+                                <input type="month" name="month" class="input" placeholder="Month" title="Please Enter Date"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Week">Select Week </label>
+                            </td>
+                            <td>
+                                <input type="week" name="week" class="input" placeholder="Week" title="Please Enter Date"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Search">Search </label>
+                            </td>
+                            <td>
+                                <input type="search" name="search" class="input" placeholder="Search" title="Please Enter to search"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Tel">Mobile No: </label>
+                            </td>
+                            <td>
+                                <input type="tel" name="mob" class="input" placeholder="0123456789" pattern="(?=.*\d)(?!.*\W+)(?!.*[a-z])(?!.*[A-Z]).{10,10}"
+                                    title="Please Enter Telephone Number" required>
+                            </td>
+                        </tr>
+                        <!--/ for New Browsers only -->
+                        <tr>
+                            <td>
+                                <label for="Range">Select Range </label>
+                            </td>
+                            <td>
+                                1<input type="range" name="range" size="2" min="1" max="10" value="7" title="Please Select Range"
+                                    required />10
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Gender">Gender </label>
+                            </td>
+                            <td>
+                                Male<input type="radio" name="gen" value="Male" required />
+                                Female<input type="radio" name="gen" value="Female" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Vehicle">Have You ? </label>
+                            </td>
+                            <td>
+                                Bike<input type="checkbox" name="bike" value="Bike" />
+                                Car<input type="checkbox" name="car" value="Car" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="Profile Pic">Profile Pic </label>
+                            </td>
+                            <td>
+                                <input type="file" name="photo" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <input type="submit" class="button">
+                            </td>
+                            <td align="center">
+                                <input type="reset" class="button" name="reset" value="Reset">
+                            </td>
+                        </tr>
+                    </tbody>
+                </form>
+            </table>
+        </fieldset>
+    </center>
+    <script type="text/javascript" src="js/javascript.js"></script>
+</body>
+
+</html>
