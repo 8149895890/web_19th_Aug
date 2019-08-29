@@ -7,7 +7,7 @@
     <title>Form</title>
   </head>
   <body>
-    <form action="demo.htm" method="post">
+    <form action="demo.htm" method="get">
       <fieldset>
         <legend align="center">Registration Form</legend>
         <table>
@@ -18,7 +18,6 @@
               <input
                 name="uName"
                 required
-                pattern="vvvv"
                 placeholder="User Name"
                 title="Lorem ipsum dolor sit amet consectetur "
               />
@@ -35,6 +34,36 @@
                 placeholder="Password"
               />
             </td>
+          </tr>
+          <tr>
+            <td>City :</td>
+            <td>
+              <select name="city">
+                <option >Select City...</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Nsk">Nashik</option>
+                <option value="ngpr">Nagpur</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Gen :</td>
+            <td>
+              <input type="radio" value="m" name="gen" />M
+              <input name="gen" value="f" type="radio" />F
+            </td>
+          </tr>
+          <tr>
+            <td>Have You?</td>
+            <td>
+              <input name="Car" value="Car" type="checkbox" />Car
+              <input value="bike" name="Bike" type="checkbox" />Bike
+            </td>
+          </tr>
+          <tr>
+            <td>Upload file</td>
+            <td><input type="file" /></td>
           </tr>
           <tr>
             <td><input type="submit" value="Send From" /></td>
