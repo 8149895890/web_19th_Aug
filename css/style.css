@@ -1,6 +1,18 @@
-p {
-  color: red;
+.p {
+  color: orange;
 }
-h1 {
-  color: blue;
+
+.title {
+  color: grey !important;
+}
+
+.box {
+  font-style: italic;
+  font-family: cursive;
+  color: tomato;
+  /* border: 1px dashed darkgreen; */
+  padding: 5px;
+  margin: 6px;
+  box-shadow: 6px -1px 11px blue;
+  border-radius: 7px;
 }
